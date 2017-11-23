@@ -11,6 +11,9 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    if (@book.user.id != current_user.id)
+    redirect_to '/'
+  end
   end
 
   # GET /books/new
